@@ -9,8 +9,4 @@ class HomeController extends Controller
     public function index() {
         return view('home')->with('hero', true);
     }
-
-    public function about() {
-        return view('about');
-    }
 }

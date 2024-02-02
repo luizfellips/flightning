@@ -23,4 +23,4 @@ Route::get('/', [HomeController::class, 'index'])->name('/');
 Route::get('/flights', [FlightsController::class, 'index'])->name('flights.index');
 Route::get('/flights/cheapest', [FlightsController::class, 'cheapest'])->name('flights.cheapest');
 
-Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/about', view('about'))->name('about');
