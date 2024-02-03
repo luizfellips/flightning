@@ -6,8 +6,10 @@
 ### It presents a simple beautiful page built with Bootstrap 5 and Laravel, with informations about cheap flight tickets in the area and data about the flights.
 
 
-https://github.com/luizfellips/flightning/assets/110192027/ea044ffc-53f8-4fb2-a6cd-3c078b9debf4
-
+![image](https://github.com/luizfellips/flightning/assets/110192027/8950641c-39ff-4ccc-a2d5-06b61de7f844)
+![image](https://github.com/luizfellips/flightning/assets/110192027/618471f6-96e9-4f68-b317-512941dc23ad)
+![image](https://github.com/luizfellips/flightning/assets/110192027/31c59d74-fef1-44b9-87ff-d6a915e9721d)
+![image](https://github.com/luizfellips/flightning/assets/110192027/6a6ae4cd-fa33-4b23-8687-59946dd877ab)
 
 It currently has/supports the following features:
 
@@ -17,6 +19,7 @@ It currently has/supports the following features:
 - About page
 - Adaptation to AppServiceProvider to use bootstrap in paginator
 - bootstrap 5 mixed with Tailwind
+- Laravel breeze package for auth
 - Flight factory
 - Flight migration
 - Flight seeder
