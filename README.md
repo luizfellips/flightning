@@ -16,9 +16,12 @@ It currently has/supports the following features:
 - Pagination
 - About page
 - Adaptation to AppServiceProvider to use bootstrap in paginator
-- bootstrap 5 via npm
+- bootstrap 5 mixed with Tailwind
 - Flight factory
 - Flight migration
 - Flight seeder
+- custom show page for clicked book now flight in home page
+- search form and search for select option
+- styling
 
   # W.I.P
