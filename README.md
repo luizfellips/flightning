@@ -6,10 +6,10 @@
 ### It presents a simple beautiful page built with Bootstrap 5 and Laravel, with informations about cheap flight tickets in the area and data about the flights.
 
 
-![image](https://github.com/luizfellips/flightning/assets/110192027/8950641c-39ff-4ccc-a2d5-06b61de7f844)
-![image](https://github.com/luizfellips/flightning/assets/110192027/618471f6-96e9-4f68-b317-512941dc23ad)
-![image](https://github.com/luizfellips/flightning/assets/110192027/31c59d74-fef1-44b9-87ff-d6a915e9721d)
-![image](https://github.com/luizfellips/flightning/assets/110192027/6a6ae4cd-fa33-4b23-8687-59946dd877ab)
+| Image 1 | Image 2 | Image 3 | Image 4 | Image 5
+|---------|---------|---------|---------|--------|
+| ![Image 1](https://github.com/luizfellips/flightning/assets/110192027/8950641c-39ff-4ccc-a2d5-06b61de7f844) | ![Image 2](https://github.com/luizfellips/flightning/assets/110192027/618471f6-96e9-4f68-b317-512941dc23ad) | ![Image 3](https://github.com/luizfellips/flightning/assets/110192027/31c59d74-fef1-44b9-87ff-d6a915e9721d) | ![Image 4](https://github.com/luizfellips/flightning/assets/110192027/6a6ae4cd-fa33-4b23-8687-59946dd877ab) | ![Image 5](https://github.com/luizfellips/flightning/assets/110192027/9e34689a-821b-4cce-be89-bb8962167b77)
+
 
 It currently has/supports the following features:
 
