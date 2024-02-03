@@ -23,4 +23,8 @@ class FlightsController extends Controller
 
         return view('flights.index', compact('flights'))->with('title','Cheapest Flights');
     }
+
+    public function show(Flight $flight) {
+        return view('flights.show', ['flight' => $flight]);
+    }
 }

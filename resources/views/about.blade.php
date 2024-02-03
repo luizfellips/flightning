@@ -1,6 +1,5 @@
-    @extends('layouts.default')
+<x-layout>
 
-    @section('content')
         <div class="container mt-4">
             <h1 class="fs-3">Welcome to Flightning, your go-to destination for finding the most affordable flights to
                 your dream destinations!</h1>
@@ -54,4 +53,4 @@
 
             <p class="text-muted"> Happy Travels! 🌍✈️ </p>
         </div>
-    @endsection
+    </x-layout>

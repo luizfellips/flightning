@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\FlightsController;
-use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FlightsController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +17,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+// default routes
 Route::get('/', [HomeController::class, 'index'])->name('/');
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
 
 // flight routes
 Route::get('/flights', [FlightsController::class, 'index'])->name('flights.index');
 Route::get('/flights/cheapest', [FlightsController::class, 'cheapest'])->name('flights.cheapest');
+Route::get('/flights/{flight}',[FlightsController::class, 'show'])->name('flights.show');
 
-Route::get('/about', view('about'))->name('about');
+// breeze routes
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__ . '/auth.php';

@@ -3,3 +3,5 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Flightning</title>
 @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+@vite('resources/css/app.css')
+

@@ -19,4 +19,10 @@ class Flight extends Model
         'to',
         'arrival',
     ];
+
+    public function scopeFilter($query, array $filters) {
+        if ($filters['search'] ?? false) {
+            $query->where(request('searchFor'), 'like', '%' . request('search') . '%');
+        }
+    }
 }
