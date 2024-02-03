@@ -18,13 +18,15 @@ It currently has/supports the following features:
 - Pagination
 - About page
 - Adaptation to AppServiceProvider to use bootstrap in paginator
-- bootstrap 5 mixed with Tailwind
-- Laravel breeze package for auth
+- integrate Laravel breeze for user authentication
 - Flight factory
 - Flight migration
 - Flight seeder
 - custom show page for clicked book now flight in home page
 - search form and search for select option
-- styling
+- general stylings with bootstrap 5 mixed with tailwind
+- Is admin middleware implementation
+- Flash message for logging in and signing out with 3 seconds timeout to vanish
+  
 
   # W.I.P
