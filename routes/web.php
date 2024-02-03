@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Middleware\IsAdmin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FlightsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminFlightsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +28,9 @@ Route::get('/about', function () {
 // flight routes
 Route::get('/flights', [FlightsController::class, 'index'])->name('flights.index');
 Route::get('/flights/cheapest', [FlightsController::class, 'cheapest'])->name('flights.cheapest');
-Route::get('/flights/{flight}',[FlightsController::class, 'show'])->name('flights.show');
+Route::get('/flights/{flight}', [FlightsController::class, 'show'])->name('flights.show');
+
+
 
 // breeze routes
 Route::get('/dashboard', function () {
@@ -37,6 +41,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::middleware([IsAdmin::class])->group(function () {
+        Route::get('/admin/flights/create', [AdminFlightsController::class, 'create'])->name('admin.flights.create');
+    });
 });
+
+
 
 require __DIR__ . '/auth.php';

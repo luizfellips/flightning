@@ -7,8 +7,9 @@
 
 <body>
     <div class="container">
+        <x-flash-message />
         <header class="row">
-            @include('includes.header')
+            @include('layouts.navigation')
 
         </header>
         <div id="main" class="row">

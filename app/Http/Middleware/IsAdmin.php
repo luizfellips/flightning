@@ -15,8 +15,6 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->user())
-        abort_if(!auth()->user()->is_admin, 403);
         if (!auth()->user()->is_admin) {
             abort(403);
         }
