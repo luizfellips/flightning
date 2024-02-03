@@ -27,6 +27,6 @@ It currently has/supports the following features:
 - general stylings with bootstrap 5 mixed with tailwind
 - Is admin middleware implementation
 - Flash message for logging in and signing out with 3 seconds timeout to vanish
-  
+- Route model binding
 
   # W.I.P
