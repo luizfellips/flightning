@@ -25,4 +25,9 @@ class Flight extends Model
             $query->where(request('searchFor'), 'like', '%' . request('search') . '%');
         }
     }
+
+    public function bookedFlights()
+    {
+        return $this->hasMany(BookedFlight::class);
+    }
 }

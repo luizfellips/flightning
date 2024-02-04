@@ -23,11 +23,11 @@
                 </div>
 
                 @auth
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                    </div>
                 @endauth
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
@@ -89,7 +89,6 @@
                         </x-nav-link>
                     </div>
                 </div>
-
             @endguest
 
 
@@ -113,8 +112,23 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('/')" :active="request()->routeIs('/')">
+                {{ __('Home') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('flights.index')" :active="request()->routeIs('flights.index')">
+                {{ __('Flights') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('about')" :active="request()->routeIs('about')">
+                {{ __('About') }}
             </x-responsive-nav-link>
         </div>
 
@@ -145,10 +159,16 @@
             </div>
         @endauth
         @guest
-            <button class="nav-item nav-link mx-2"><a href="{{ route('login') }}"
-                    class="no-underline hover:underline hover:text-sky-600">Login</a></button>
-            <button class="nav-item nav-link "><a href="{{ route('register') }}"
-                    class="no-underline hover:underline hover:text-sky-600">Register</a></button>
+        <div class="pt-2 pb-1 border-t border-gray-200">
+            <div>
+                <x-responsive-nav-link :href="route('login')" class="mb-3">
+                    {{ __('Login') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('register')">
+                    {{ __('Register') }}
+                </x-responsive-nav-link>
+            </div>
+        </div>
         @endguest
 
     </div>

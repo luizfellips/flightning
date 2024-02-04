@@ -6,10 +6,8 @@
                 <tr>
                     @unless (count($flights) === 0)
                         <th scope="col">Flight ID</th>
-                        <th scope="col">Company</th>
                         <th scope="col">Plane</th>
                         <th scope="col">Ticket Price</th>
-                        <th scope="col">From</th>
                         <th scope="col">To</th>
                     @else
                         <th> </th>
@@ -23,10 +21,8 @@
                         <tr class=" cursor-pointer"
                             onclick="window.location='{{ route('flights.show', ['flight' => $flight->id]) }}';">
                             <th scope="row">{{ $flight->id }}</th>
-                            <td>{{ $flight->company }}</td>
                             <td>{{ strtoupper($flight->plane) }}</td>
                             <td>${{ number_format($flight->ticket_price) }}</td>
-                            <td>{{ $flight->from }}</td>
                             <td>{{ $flight->to }}</td>
                         </tr>
                     @endforeach

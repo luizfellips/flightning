@@ -24,6 +24,11 @@ class User extends Authenticatable
         'is_admin'
     ];
 
+    public function bookedFlights()
+    {
+        return $this->hasMany(BookedFlight::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
