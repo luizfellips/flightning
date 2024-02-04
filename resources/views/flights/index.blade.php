@@ -5,14 +5,14 @@
             <thead>
                 <tr>
                     @unless (count($flights) === 0)
-                    <th scope="col">Flight ID</th>
-                    <th scope="col">Company</th>
-                    <th scope="col">Plane</th>
-                    <th scope="col">Ticket Price</th>
-                    <th scope="col">From</th>
-                    <th scope="col">To</th>
+                        <th scope="col">Flight ID</th>
+                        <th scope="col">Company</th>
+                        <th scope="col">Plane</th>
+                        <th scope="col">Ticket Price</th>
+                        <th scope="col">From</th>
+                        <th scope="col">To</th>
                     @else
-                    <th> </th>
+                        <th> </th>
                     @endunless
 
                 </tr>
@@ -20,7 +20,8 @@
             <tbody>
                 @unless (count($flights) === 0)
                     @foreach ($flights as $flight)
-                        <tr>
+                        <tr class=" cursor-pointer"
+                            onclick="window.location='{{ route('flights.show', ['flight' => $flight->id]) }}';">
                             <th scope="row">{{ $flight->id }}</th>
                             <td>{{ $flight->company }}</td>
                             <td>{{ strtoupper($flight->plane) }}</td>
