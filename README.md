@@ -28,5 +28,10 @@ It currently has/supports the following features:
 - Is admin middleware implementation
 - Flash message for logging in and signing out with 3 seconds timeout to vanish
 - Route model binding
+- admin panel with admin middleware authentication ( create new flight ) + adminflightscontroller
+- custom features for admin user
+- blade directives various usages such as stack, push, auths, etcq
+- Relationships between booked flights, flights and users
+- new migrations
 
   # W.I.P
