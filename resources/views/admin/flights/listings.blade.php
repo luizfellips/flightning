@@ -18,7 +18,7 @@
             <tbody>
                 @unless (count($flights) === 0)
                     @foreach ($flights as $flight)
-                        <tr class=" cursor-pointer" onclick="window.location='{{ route('flights.show', ['flight' => $flight->id]) }}';">
+                        <tr class=" cursor-pointer" onclick="window.location='{{ route($targetRoute, ['flight' => $flight->id]) }}';">
                             <th scope="row">{{ $flight->id }}</th>
                             <td>{{ strtoupper($flight->plane) }}</td>
                             <td>${{ number_format($flight->ticket_price) }}</td>
@@ -31,8 +31,6 @@
                         </th>
                     </tr>
                 @endunless
-
-
             </tbody>
         </table>
         {{ $flights->links() }}

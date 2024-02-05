@@ -19,7 +19,7 @@ class UserFlightsController extends Controller
             $query->where('user_id', auth()->user()->id);
         })->get();
 
-        return view('user.flights', ['flights' => $flights]);
+        return view('user.index', ['flights' => $flights]);
     }
 
     /**
@@ -37,7 +37,7 @@ class UserFlightsController extends Controller
                 'updated_at' => now(),
             ]);
 
-            return redirect()->route('user.flights')->with('message', 'Your flight was booked successfully!');
+            return redirect()->route('user.index')->with('message', 'Your flight was booked successfully!');
         } catch (\Exception $ex) {
             throw new \Exception($ex->getMessage(), $ex->getCode());
         }
@@ -53,7 +53,7 @@ class UserFlightsController extends Controller
         try {
             DB::table('booked_flights')->where('flight_id', $flight->id)->delete();
 
-            return redirect()->route('user.flights')->with('message', 'Your flight was unbooked.');
+            return redirect()->route('user.index')->with('message', 'Your flight was unbooked.');
         } catch (\Exception $ex) {
             throw new \Exception($ex->getMessage(), $ex->getCode());
         }

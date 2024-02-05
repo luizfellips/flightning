@@ -5,7 +5,7 @@
             <div class="mb-6 p-10 bg-white -m-10">
                 <h1 class="font-bold text-2xl text-gray-700 text-center">Register a new flight</h1>
             </div>
-            <form action="{{route('admin.store')}}" method="POST">
+            <form action="{{route('admin.flights.store')}}" method="POST">
                 @csrf
                 <div class="grid grid-cols-2 gap-6">
                     <div class="flex flex-col mb-4">

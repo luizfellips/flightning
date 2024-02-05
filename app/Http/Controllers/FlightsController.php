@@ -12,7 +12,7 @@ class FlightsController extends Controller
         $flights = Flight::query();
 
         $flights = $flights->paginate(10);
-        return view('flights.index', compact('flights'))->with('title','All Flights');;
+        return view('flights.index', compact('flights'))->with('title','All Flights');
     }
 
     public function cheapest()

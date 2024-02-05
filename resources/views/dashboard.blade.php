@@ -16,16 +16,9 @@
                     <div class="col text-center p-6 pb-0 text-gray-900 fs-4">
                         {{ __('Your Booked Flights') }}
                         <div class="p-6 pt-0 pl-2">
-                            <a href="{{ route('user.flights') }}"
+                            <a href="{{ route('user.index') }}"
                                 class="btn bg-sky-400 text-white w-40 focus:bg-sky-500 hover:bg-sky-500">Booked
                                 Flights</a>
-                        </div>
-                    </div>
-                    <div class="col text-center p-6 pb-0 text-gray-900 fs-4">
-                        {{ __('Your Preferences') }}
-                        <div class="p-6 pt-0 pl-2">
-                            <a href="#"
-                                class="btn bg-sky-400 text-white w-40 focus:bg-sky-500 hover:bg-sky-500">Preferences</a>
                         </div>
                     </div>
                     <div class="col text-center p-6 pb-0 text-gray-900 fs-4">
@@ -37,15 +30,16 @@
                     </div>
                 </div>
                 @if (auth()->user()->is_admin)
-                <div class="row p-2 justify-center items-center">
-                    <div class="col text-center p-6 pb-0 text-gray-900 fs-4">
-                        {{ __('Admin Panel') }}
-                        <div class="p-6 pt-0 pl-2">
-                            <a href="{{ route('admin.index') }}"
-                                class="btn bg-green-500 text-white w-40 focus:bg-green-600 hover:bg-green-600">Admin Panel</a>
+                    <div class="row p-2 justify-center items-center">
+                        <div class="col text-center p-6 pb-0 text-gray-900 fs-4">
+                            {{ __('Admin Panel') }}
+                            <div class="p-6 pt-0 pl-2">
+                                <a href="{{ route('admin.index') }}"
+                                    class="btn bg-green-500 text-white w-40 focus:bg-green-600 hover:bg-green-600">Admin
+                                    Panel</a>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endif
             </div>
         </div>

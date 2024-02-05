@@ -6,8 +6,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FlightsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\UserFlightsController;
-use App\Http\Controllers\AdminFlightsController;
+use App\Http\Controllers\Admin\AdminUsersController;
+use App\Http\Controllers\Admin\AdminFlightsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,16 +44,45 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // user flights routes(list, book new one, unbook flight)
-    Route::get('/user/flights', [UserFlightsController::class, 'index'])->name('user.flights');
+    Route::get('/user/flights', [UserFlightsController::class, 'index'])->name('user.index');
     Route::post('/user/flights/{flight}', [UserFlightsController::class, 'store'])->name('user.flights.store');
     Route::delete('/user/flights/{flight}', [UserFlightsController::class, 'destroy'])->name('user.flights.destroy');
 
-    // admin flight routes
+    /**
+     * admin management routes
+     */
     Route::middleware([IsAdmin::class])->group(function () {
-        Route::resource('admin', AdminFlightsController::class)->except(['show']);
+        /**
+         * all routes start with /admin
+         * and all route names start with admin.
+         */
+        Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+
+
+        Route::prefix('admin')->name('admin.')->group(function () {
+
+            // used to list all flights to select for editing
+            Route::get('flights/revise', [AdminFlightsController::class, 'revise'])->name('flights.revise');
+
+            // used to list all flights to select for delete
+            Route::get('flights/delete', [AdminFlightsController::class, 'delete'])->name('flights.delete');
+
+            // delete confirmation
+            Route::get('flights/{flight}/confirm', [AdminFlightsController::class, 'deleteConfirm'])->name('flights.delete.confirm');
+
+            // generates a resource route for admin to manage flights CRUD operations
+            Route::resource('flights', AdminFlightsController::class)
+                ->parameters(['flights' => 'flight'])
+                ->except(['show', 'index']);
+
+            // admin management of users routes
+            Route::get('users/{user}/confirm', [AdminUsersController::class, 'delete'])->name('users.delete.confirm');
+
+            Route::resource('users', AdminUsersController::class)
+                ->parameters(['users' => 'user'])
+                ->only(['index', 'show', 'edit', 'update', 'destroy']);
+        });
     });
 });
-
-
 
 require __DIR__ . '/auth.php';
