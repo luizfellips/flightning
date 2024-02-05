@@ -48,7 +48,7 @@ Route::middleware('auth')->group(function () {
 
     // admin flight routes
     Route::middleware([IsAdmin::class])->group(function () {
-        Route::get('/admin/flights/create', [AdminFlightsController::class, 'create'])->name('admin.flights.create');
+        Route::resource('admin', AdminFlightsController::class)->except(['show']);
     });
 });
 
