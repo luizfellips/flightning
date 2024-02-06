@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\UserFlightsController;
 use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Admin\AdminFlightsController;
+use App\Http\Controllers\Admin\AdminFlightsDeleteController;
+use App\Http\Controllers\Admin\ShowAdminFlightsEditListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,13 +64,13 @@ Route::middleware('auth')->group(function () {
         Route::prefix('admin')->name('admin.')->group(function () {
 
             // used to list all flights to select for editing
-            Route::get('flights/revise', [AdminFlightsController::class, 'revise'])->name('flights.revise');
+            Route::get('flights/revise', ShowAdminFlightsEditListController::class)->name('flights.revise');
 
             // used to list all flights to select for delete
-            Route::get('flights/delete', [AdminFlightsController::class, 'delete'])->name('flights.delete');
+            Route::get('flights/delete', [AdminFlightsDeleteController::class, 'index'])->name('flights.delete');
 
             // delete confirmation
-            Route::get('flights/{flight}/confirm', [AdminFlightsController::class, 'deleteConfirm'])->name('flights.delete.confirm');
+            Route::get('flights/{flight}/confirm', [AdminFlightsDeleteController::class, 'confirm'])->name('flights.delete.confirm');
 
             // generates a resource route for admin to manage flights CRUD operations
             Route::resource('flights', AdminFlightsController::class)

@@ -1,6 +1,6 @@
     <x-layout>
 
-        <div class="h-screen w-screen flex items-center justify-center">
+        <div class="h-screen w-screen mt-3 flex items-center justify-center">
             <div class="p-10 rounded shadow-sm border-2 border-opacity-35 border-blue-700 max-w-lg w-2/3">
                 <div class="mb-6 p-10 bg-white -m-10">
                     <h1 class="font-bold text-2xl text-gray-700 text-center">Update a flight</h1>
@@ -26,20 +26,21 @@
                                 value="{{ old('plane', $flight->plane) }}" />
                         </div>
                     </div>
-                    <div class="flex flex-col mb-4">
-                        <label>From
-                            <span class="block text-xs font-light text-stone-400">Where is flight taking place</span>
-                        </label>
-                        <input type="text" placeholder="From" name="from" class="mt-2 px-4 py-2 shadow rounded" value="{{ old('plane', $flight->from) }}" />
-                    </div>
-                    <div class="flex flex-col mb-4">
-                        <label>To
-                            <span class="block text-xs font-light text-stone-400">Where shall the plane arrive</span>
-                        </label>
-                        <input type="text" placeholder="Where" name="to"
-                            class="mt-2 px-4 py-2 shadow rounded" value="{{ old('plane', $flight->to) }}" />
-                    </div>
                     <div class="grid grid-cols-2 gap-6">
+                        <div class="flex flex-col mb-4">
+                            <label>From
+                                <span class="block text-xs font-light text-stone-400">Where is flight taking place</span>
+                            </label>
+                            <input type="text" placeholder="From" disabled name="from" class="mt-2 px-4 py-2 shadow rounded" value="{{ old('plane', $flight->from) }}" />
+                        </div>
+                        <div class="flex flex-col mb-4">
+                            <label>To
+                                <span class="block text-xs font-light text-stone-400">Where shall the plane arrive</span>
+                            </label>
+                            <input type="text" placeholder="Where" name="to"
+                                class="mt-2 px-4 py-2 shadow rounded" disabled value="{{ old('plane', $flight->to) }}" />
+                        </div>
+                    </div>
                         <div class="flex flex-col mb-4">
                             <label>Boarding
                                 <span class="block text-xs font-light text-stone-400">When should the boarding
@@ -56,7 +57,6 @@
                             <input type="datetime-local" placeholder="Departure time" name="departure"
                                 class="mt-2 px-4 py-2 shadow rounded" value="{{ old('plane', $flight->departure) }}" />
                         </div>
-                    </div>
                     <div class="flex flex-col mb-4">
                         <label>Arrival
                             <span class="block text-xs font-light text-stone-400">When should the plane arrive</span>

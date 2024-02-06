@@ -3,6 +3,7 @@
         <option value="to">Search for:</option>
         <option {{request()->searchFor == 'to' ? 'selected' : null}} value="to">To</option>
         <option {{request()->searchFor == 'company' ? 'selected' : null}} value="company">Company</option>
+        <option {{request()->searchFor == 'plane' ? 'selected' : null}} value="plane">Plane name</option>
       </select>
     <input type="search" name="search" placeholder="Search for a flight" class="form-control rounded-4" value="{{request()->search}}" />
     <button type="submit" class="btn p-0 px-2" data-mdb-ripple-init>

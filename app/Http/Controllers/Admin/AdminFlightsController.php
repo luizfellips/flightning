@@ -10,30 +10,6 @@ use Illuminate\Support\Facades\Route;
 
 class AdminFlightsController extends Controller
 {
-    public function revise()
-    {
-        $flights = Flight::query();
-
-        $flights = $flights->paginate(10);
-
-        return view('admin.flights.listings', compact('flights'))->with([
-            'title' =>  'Edit a flight',
-            'targetRoute' => 'admin.flights.edit',
-        ]);
-    }
-
-    public function delete()
-    {
-        $flights = Flight::query();
-
-        $flights = $flights->paginate(10);
-
-        return view('admin.flights.listings', compact('flights'))->with([
-            'title' =>  'Delete a flight',
-            'targetRoute' => 'admin.flights.delete.confirm',
-        ]);
-    }
-
     public function create()
     {
         return view('admin.flights.create');
@@ -84,9 +60,7 @@ class AdminFlightsController extends Controller
         }
     }
 
-    public function deleteConfirm(Flight $flight) {
-        return view('admin.flights.delete', compact('flight'));
-    }
+
 
     public function destroy(Flight $flight) {
         try {
