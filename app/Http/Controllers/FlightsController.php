@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 class FlightsController extends Controller
 {
     public function index() {
-        $flights = Flight::with(['details', 'locations'])->paginate(10);
+        $flights = Flight::query()->paginate(10);
 
         return view('flights.index', compact('flights'))->with('title','All Flights');
     }
