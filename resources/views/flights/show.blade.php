@@ -27,11 +27,11 @@
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Vue_de_nuit_de_la_Place_Stanislas_%C3%A0_Nancy.jpg/1200px-Vue_de_nuit_de_la_Place_Stanislas_%C3%A0_Nancy.jpg"
                 alt="">
             <div class="p-3">
-                <h1 class="fs-3 pb-3">From: <strong>{{ $flight->from }}</strong></h1>
-                <h1 class="fs-3 py-3">To: <strong>{{ $flight->to }}</strong></h1>
-                <h1 class="fs-3 py-3">Boarding time: <strong>{{ $flight->boarding }}</strong></h1>
-                <h1 class="fs-3 py-3">Departure time: <strong>{{ $flight->departure }}</strong></h1>
-                <h1 class="fs-3 py-3">Approximated arrival time: <strong>{{ $flight->arrival }}</strong></h1>
+                <h1 class="fs-3 pb-3">From: <strong>{{ $flight->locations->from }}</strong></h1>
+                <h1 class="fs-3 py-3">To: <strong>{{ $flight->locations->to }}</strong></h1>
+                <h1 class="fs-3 py-3">Boarding time: <strong>{{ $flight->details->boarding }}</strong></h1>
+                <h1 class="fs-3 py-3">Departure time: <strong>{{ $flight->details->departure }}</strong></h1>
+                <h1 class="fs-3 py-3">Approximated arrival time: <strong>{{ $flight->details->arrival }}</strong></h1>
                 <h1
                     class="display-5 p-3 text-white shadow-lg bg-sky-600 rounded-2xl bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600">
                     Ticket Price: <strong>US$ {{ number_format($flight->ticket_price, 2) }}</strong></h1>

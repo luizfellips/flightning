@@ -22,7 +22,7 @@
                             <th scope="row">{{ $flight->id }}</th>
                             <td>{{ strtoupper($flight->plane) }}</td>
                             <td>${{ number_format($flight->ticket_price) }}</td>
-                            <td>{{ $flight->to }}</td>
+                            <td>{{ $flight->locations->to }}</td>
                         </tr>
                     @endforeach
                 @else

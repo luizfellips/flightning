@@ -31,14 +31,14 @@
                             <label>From
                                 <span class="block text-xs font-light text-stone-400">Where is flight taking place</span>
                             </label>
-                            <input type="text" placeholder="From" disabled name="from" class="mt-2 px-4 py-2 shadow rounded" value="{{ old('plane', $flight->from) }}" />
+                            <input type="text" placeholder="From" name="from" class="mt-2 px-4 py-2 shadow rounded" value="{{ old('from', $flight->locations->from) }}" />
                         </div>
                         <div class="flex flex-col mb-4">
                             <label>To
                                 <span class="block text-xs font-light text-stone-400">Where shall the plane arrive</span>
                             </label>
                             <input type="text" placeholder="Where" name="to"
-                                class="mt-2 px-4 py-2 shadow rounded" disabled value="{{ old('plane', $flight->to) }}" />
+                                class="mt-2 px-4 py-2 shadow rounded" value="{{ old('plane', $flight->locations->to) }}" />
                         </div>
                     </div>
                         <div class="flex flex-col mb-4">
@@ -47,7 +47,7 @@
                                     start</span>
                             </label>
                             <input type="datetime-local" placeholder="Boarding time" name="boarding"
-                                class="mt-2 px-4 py-2 shadow rounded" value="{{ old('plane', $flight->boarding) }}" />
+                                class="mt-2 px-4 py-2 shadow rounded" value="{{ old('boarding', $flight->details->boarding) }}" />
                         </div>
                         <div class="flex flex-col mb-4">
                             <label>Departure
@@ -55,14 +55,14 @@
                                     ground</span>
                             </label>
                             <input type="datetime-local" placeholder="Departure time" name="departure"
-                                class="mt-2 px-4 py-2 shadow rounded" value="{{ old('plane', $flight->departure) }}" />
+                                class="mt-2 px-4 py-2 shadow rounded" value="{{ old('departure', $flight->details->departure) }}" />
                         </div>
                     <div class="flex flex-col mb-4">
                         <label>Arrival
                             <span class="block text-xs font-light text-stone-400">When should the plane arrive</span>
                         </label>
                         <input type="datetime-local" placeholder="Arrival time" name="arrival"
-                            class="mt-2 px-4 py-2 shadow rounded" value="{{ old('plane', $flight->arrival) }}"/>
+                            class="mt-2 px-4 py-2 shadow rounded" value="{{ old('arrival', $flight->details->arrival) }}"/>
                     </div>
                     <div class="flex flex-col mb-4">
                         <label>Ticket Price

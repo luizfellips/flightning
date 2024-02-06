@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\User;
 use App\Models\Flight;
+use App\Models\FlightDetail;
 use Illuminate\Http\Request;
+use App\Models\FlightLocation;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Route;
 
 class AdminFlightsController extends Controller
 {
@@ -18,18 +18,31 @@ class AdminFlightsController extends Controller
     public function store(Request $request)
     {
         try {
+            // Create a new flight record
             $flight = new Flight([
                 'company' => $request->input('company'),
                 'plane' => $request->input('plane'),
-                'from' => $request->input('from'),
-                'to' => $request->input('to'),
-                'boarding' => $request->input('boarding'),
-                'departure' => $request->input('departure'),
-                'arrival' => $request->input('arrival'),
                 'ticket_price' => $request->input('ticket_price'),
             ]);
 
             $flight->save();
+
+            // Create corresponding records in flight_details and flight_locations tables
+            $flightDetail = new FlightDetail([
+                'flight_id' => $flight->id,
+                'boarding' => $request->input('boarding'),
+                'departure' => $request->input('departure'),
+                'arrival' => $request->input('arrival'),
+            ]);
+
+            $flightLocation = new FlightLocation([
+                'flight_id' => $flight->id,
+                'from' => $request->input('from'),
+                'to' => $request->input('to'),
+            ]);
+
+            $flightDetail->save();
+            $flightLocation->save();
 
             return redirect()->route('admin.index')->with('message', 'Flight registered successfully');
         } catch (\Throwable $th) {
@@ -37,11 +50,13 @@ class AdminFlightsController extends Controller
         }
     }
 
-    public function edit(Flight $flight) {
+    public function edit(Flight $flight)
+    {
         return view('admin.flights.edit', compact('flight'));
     }
 
-    public function update(Request $request, Flight $flight) {
+    public function update(Request $request, Flight $flight)
+    {
         try {
             $flight->update([
                 'company' => $request->input('company'),
@@ -62,7 +77,8 @@ class AdminFlightsController extends Controller
 
 
 
-    public function destroy(Flight $flight) {
+    public function destroy(Flight $flight)
+    {
         try {
             $flight->delete();
 

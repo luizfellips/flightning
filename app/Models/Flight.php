@@ -20,14 +20,31 @@ class Flight extends Model
         'arrival',
     ];
 
-    public function scopeFilter($query, array $filters) {
+    public function scopeFilter($query, array $filters)
+    {
         if ($filters['search'] ?? false) {
-            $query->where(request('searchFor'), 'like', '%' . request('search') . '%');
+            $searchFor = $filters['searchFor'] ?? 'flight'; // Default to 'flight' if 'searchFor' is not provided
+
+            $query->where(function ($query) use ($searchFor) {
+                $query->WhereHas('locations', function ($subquery) use ($searchFor) {
+                    $subquery->where($searchFor, 'like', '%' . request('search') . '%');
+                });
+            });
         }
     }
 
     public function bookedFlights()
     {
         return $this->hasMany(BookedFlight::class);
+    }
+
+    public function details()
+    {
+        return $this->hasOne(FlightDetail::class);
+    }
+
+    public function locations()
+    {
+        return $this->hasOne(FlightLocation::class);
     }
 }
