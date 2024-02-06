@@ -32,6 +32,7 @@ It currently has/supports the following features:
 - custom features for admin user
 - blade directives various usages such as stack, push, auths, etcq
 - Relationships between booked flights, flights and users
-- new migrations
+- relationships between flights, flight locations and flight details
+- Single action controller and dedicated controllers
 
   # W.I.P
